@@ -28,7 +28,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="1pB-He-ugk">
                                 <rect key="frame" x="0.0" y="58" width="600" height="542"/>
                             </imageView>
-                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IL4-Ln-403">
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search for a TV Show" translatesAutoresizingMaskIntoConstraints="NO" id="IL4-Ln-403">
                                 <rect key="frame" x="0.0" y="58" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -103,6 +103,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="KFn-v7-be5" id="LbA-85-UBE"/>
+                        <outlet property="searchBar" destination="IL4-Ln-403" id="8nK-JY-GpE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
