@@ -11,6 +11,23 @@ import UIKit
 class TVShowDetailVC: UIViewController {
     
     @IBOutlet var nameLbl: UILabel!
+    
+    @IBOutlet var mainImg: UIImageView!
+    
+    @IBOutlet var descriptionLbl: UILabel!
+    
+    @IBOutlet var ratingLbl: UILabel!
+    
+    @IBOutlet var genreLbl: UILabel!
+    
+    @IBOutlet var airDateLbl: UILabel!
+    
+    @IBOutlet var statusLbl: UILabel!
+    
+    @IBOutlet var createdLbl: UILabel!
+    
+    @IBOutlet var networksLbl: UILabel!
+    
     var show: TVShow!
 
     override func viewDidLoad() {
@@ -24,15 +41,8 @@ class TVShowDetailVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    */
 
 }

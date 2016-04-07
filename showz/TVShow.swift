@@ -12,6 +12,13 @@ class TVShow {
     private var _name: String!
     private var _showId: String!
     private var _imgName: String!
+    private var _description: String!
+    private var _rating: String!
+    private var _genres: String!
+    private var _airdate: String!
+    private var _status: String!
+    private var _createdBy: String!
+    private var _networks: String!
     
     var name: String {
         return _name
