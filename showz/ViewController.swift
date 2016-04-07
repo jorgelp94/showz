@@ -17,6 +17,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var inSearchMode = false
     var filteredTvshow = [TVShow]()
     
+    var jsonTopShowList = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,7 +58,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.Done
         
-        let urlString = "https://api.themoviedb.org/3/discover/tv?api_key=4fac1b17cdad8598c05f708d371e2c45"
+        let urlString = "http://api.themoviedb.org/3/discover/tv?api_key=4fac1b17cdad8598c05f708d371e2c45"
         let session = NSURLSession.sharedSession()
         let url = NSURL(string: urlString)!
         
@@ -68,9 +71,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     if let dict = json as? Dictionary<String, AnyObject> {
                         print("Did we get here: \(dict.debugDescription)")
                         
-                        if let name = dict["name"] as? String, let id = dict["id"] as? String, let imagePath = dict["poster_path"] as? String {
+                        print("Resultados: \(dict["results"])")
+                        print("Count: \(dict["results"]?.count)")
+                        
+                        if let name = dict["results"]?.valueForKey("name") as? String, let id = dict["results"]?.valueForKey("id"), let imagePath = dict["results"]?.valueForKey("poster_path") as? String {
                             
-                            let show = TVShow(name: name, id: id, imgName: imagePath)
+                            let show = TVShow(name: name, id: "\(id)", imgName: imagePath)
                             
                             print(show.name)
                             print(show.showId)
@@ -92,12 +98,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TVCell", forIndexPath: indexPath) as? TVCell {
             
+            var show: TVShow!
+            
             if inSearchMode {
-                cell.configureCell(filteredTvshow[indexPath.row])
+                show = filteredTvshow[indexPath.row]
             } else {
-                cell.configureCell(programas[indexPath.row])
+                show = programas[indexPath.row]
             }
             
+            cell.configureCell(show)
             
             return cell
         } else {
@@ -106,6 +115,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        var show: TVShow!
+        
+        if inSearchMode {
+            show = filteredTvshow[indexPath.row]
+        } else {
+            show = programas[indexPath.row]
+        }
+        
+        performSegueWithIdentifier("TVShowDetailVC", sender: show)
         
     }
     
@@ -139,6 +158,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let lower = searchBar.text!.lowercaseString
             filteredTvshow = programas.filter({$0.name.rangeOfString(lower) != nil}) // closure element
             collection.reloadData()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "TVShowDetailVC" {
+            if let detailsVC = segue.destinationViewController as? TVShowDetailVC {
+                if let show = sender as? TVShow {
+                    detailsVC.show = show
+                }
+            }
         }
     }
 

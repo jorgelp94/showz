@@ -14,6 +14,7 @@
 		F4C5AF1B1CAE1F170051036E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C5AF191CAE1F170051036E /* LaunchScreen.storyboard */; };
 		F4C5AF241CAE25070051036E /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5AF231CAE25070051036E /* TVShow.swift */; };
 		F4C5AF271CAE35D90051036E /* TVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5AF261CAE35D90051036E /* TVCell.swift */; };
+		F4F534681CB5F01E00AD24BD /* TVShowDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F534671CB5F01E00AD24BD /* TVShowDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F4C5AF1C1CAE1F170051036E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4C5AF231CAE25070051036E /* TVShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 		F4C5AF261CAE35D90051036E /* TVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVCell.swift; sourceTree = "<group>"; };
+		F4F534671CB5F01E00AD24BD /* TVShowDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +60,10 @@
 		F4C5AF0F1CAE1F160051036E /* showz */ = {
 			isa = PBXGroup;
 			children = (
+				F4F534661CB5EFE400AD24BD /* Controller */,
 				F4C5AF221CAE24F10051036E /* Model */,
 				F4C5AF251CAE35A50051036E /* View */,
 				F4C5AF101CAE1F160051036E /* AppDelegate.swift */,
-				F4C5AF121CAE1F160051036E /* ViewController.swift */,
 				F4C5AF141CAE1F160051036E /* Main.storyboard */,
 				F4C5AF171CAE1F170051036E /* Assets.xcassets */,
 				F4C5AF191CAE1F170051036E /* LaunchScreen.storyboard */,
@@ -84,6 +86,15 @@
 				F4C5AF261CAE35D90051036E /* TVCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		F4F534661CB5EFE400AD24BD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4C5AF121CAE1F160051036E /* ViewController.swift */,
+				F4F534671CB5F01E00AD24BD /* TVShowDetailVC.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +172,7 @@
 				F4C5AF131CAE1F160051036E /* ViewController.swift in Sources */,
 				F4C5AF271CAE35D90051036E /* TVCell.swift in Sources */,
 				F4C5AF111CAE1F160051036E /* AppDelegate.swift in Sources */,
+				F4F534681CB5F01E00AD24BD /* TVShowDetailVC.swift in Sources */,
 				F4C5AF241CAE25070051036E /* TVShow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

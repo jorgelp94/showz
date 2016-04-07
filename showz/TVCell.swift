@@ -17,7 +17,7 @@ class TVCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        layer.cornerRadius = 0.5
+        layer.cornerRadius = 2.0
     }
     
     func configureCell(show: TVShow) {
