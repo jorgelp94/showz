@@ -24,6 +24,7 @@ class TVCell: UICollectionViewCell {
         tvshow = show
         
         nameLbl.text = tvshow.name.capitalizedString
-        thumbImg.image = UIImage(named: "\(tvshow.imgName)")
+        //thumbImg.image = UIImage(named: "\(tvshow.imgName)")
+        thumbImg.image = UIImage(named: "flash.jpg")
     }
 }

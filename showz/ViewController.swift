@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
@@ -17,21 +18,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var inSearchMode = false
     var filteredTvshow = [TVShow]()
     
-    var jsonTopShowList = []
+    var jsonTopShowList = [TVShow]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let show1 = TVShow(name: "arrow", id: "0", imgName: "arrow.jpg")
-        let show2 = TVShow(name: "breaking bad", id: "0", imgName: "bb.jpg")
-        let show4 = TVShow(name: "greys anatomy", id: "0", imgName: "greys.jpg")
-        let show6 = TVShow(name: "arrow", id: "0", imgName: "arrow.jpg")
-        let show7 = TVShow(name: "arrow", id: "0", imgName: "arrow.jpg")
-        let show8 = TVShow(name: "arrow", id: "0", imgName: "arrow.jpg")
-        let show9 = TVShow(name: "arrow", id: "0", imgName: "arrow.jpg")
-        let show10 = TVShow(name: "arrow", id: "0", imgName: "arrow.jpg")
-        let show11 = TVShow(name: "flash", id: "0", imgName: "flash.jpg")
+        let show1 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
+        let show2 = TVShow(name: "breaking bad", id: "1396", imgName: "bb.jpg")
+        let show4 = TVShow(name: "greys anatomy", id: "1396", imgName: "greys.jpg")
+        let show6 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
+        let show7 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
+        let show8 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
+        let show9 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
+        let show10 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
+        let show11 = TVShow(name: "flash", id: "1396", imgName: "flash.jpg")
         programas.append(show1)
         
         programas.append(show11)
@@ -59,39 +60,31 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         searchBar.returnKeyType = UIReturnKeyType.Done
         
         let urlString = "http://api.themoviedb.org/3/discover/tv?api_key=4fac1b17cdad8598c05f708d371e2c45"
-        let session = NSURLSession.sharedSession()
-        let url = NSURL(string: urlString)!
         
-        session.dataTaskWithURL(url) { (data: NSData?, response: NSURLResponse?, error: NSError?) in
-            if let responseData = data {
-                
-                do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
+        Alamofire.request(.GET, urlString).responseJSON { response in
+            let result = response.result
+            print(result.value.debugDescription)
+            
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                if let results = dict["results"] as? [Dictionary<String, AnyObject>] {
+                    print(results)
+                    print(results.count)
                     
-                    if let dict = json as? Dictionary<String, AnyObject> {
-                        print("Did we get here: \(dict.debugDescription)")
-                        
-                        print("Resultados: \(dict["results"])")
-                        print("Count: \(dict["results"]?.count)")
-                        
-                        if let name = dict["results"]?.valueForKey("name") as? String, let id = dict["results"]?.valueForKey("id"), let imagePath = dict["results"]?.valueForKey("poster_path") as? String {
-                            
-                            let show = TVShow(name: name, id: "\(id)", imgName: imagePath)
-                            
-                            print(show.name)
-                            print(show.showId)
-                            print(show.imgName)
-                            
+                    for result in results {
+                        if let name = result["name"] as? String, let id = result["id"] as? Int, let path = result["poster_path"] as? String {
+                            let newShow = TVShow(name: name, id: "\(id)", imgName: "flash.jpg");
+                            self.jsonTopShowList.append(newShow)
                         }
                     }
                     
-                    //print(json)
-                } catch {
-                    print("could not seralize")
+                    print(self.jsonTopShowList)
+                    print(self.programas)
                 }
                 
             }
-            }.resume()
+        }
+        
+        
         
     }
     

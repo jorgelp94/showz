@@ -11,21 +11,13 @@ import UIKit
 class TVShowDetailVC: UIViewController {
     
     @IBOutlet var nameLbl: UILabel!
-    
     @IBOutlet var mainImg: UIImageView!
-    
     @IBOutlet var descriptionLbl: UILabel!
-    
     @IBOutlet var ratingLbl: UILabel!
-    
     @IBOutlet var genreLbl: UILabel!
-    
     @IBOutlet var airDateLbl: UILabel!
-    
     @IBOutlet var statusLbl: UILabel!
-    
     @IBOutlet var createdLbl: UILabel!
-    
     @IBOutlet var networksLbl: UILabel!
     
     var show: TVShow!
@@ -34,6 +26,10 @@ class TVShowDetailVC: UIViewController {
         super.viewDidLoad()
         
         nameLbl.text = show.name
+        
+        show.downloadTvShowDetails { () -> () in
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
