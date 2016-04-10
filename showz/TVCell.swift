@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TVCell: UICollectionViewCell {
     @IBOutlet weak var thumbImg: UIImageView!
@@ -24,7 +25,7 @@ class TVCell: UICollectionViewCell {
         tvshow = show
         
         nameLbl.text = tvshow.name.capitalizedString
-        //thumbImg.image = UIImage(named: "\(tvshow.imgName)")
-        thumbImg.image = UIImage(named: "flash.jpg")
+        let URL = NSURL(string: show.imgUrl)!
+        thumbImg.af_setImageWithURL(URL)
     }
 }

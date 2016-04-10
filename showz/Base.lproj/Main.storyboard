@@ -318,6 +318,7 @@
                         <outlet property="createdLbl" destination="HdA-B1-jxc" id="uWh-D3-OBK"/>
                         <outlet property="descriptionLbl" destination="e7W-4r-Q8h" id="zKP-vl-i4Q"/>
                         <outlet property="genreLbl" destination="9P4-BU-yfn" id="Y2e-F9-1oQ"/>
+                        <outlet property="image" destination="vIa-EV-kNr" id="X7h-7c-jrl"/>
                         <outlet property="mainImg" destination="vIa-EV-kNr" id="FeD-Xq-iMZ"/>
                         <outlet property="nameLbl" destination="NQg-yU-zNB" id="CKX-mY-INm"/>
                         <outlet property="networksLbl" destination="Zv6-bH-D2M" id="xh8-gy-Jlh"/>

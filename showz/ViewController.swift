@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
@@ -20,19 +21,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var jsonTopShowList = [TVShow]()
     
+    var show: TVShow!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let show1 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
-        let show2 = TVShow(name: "breaking bad", id: "1396", imgName: "bb.jpg")
-        let show4 = TVShow(name: "greys anatomy", id: "1396", imgName: "greys.jpg")
-        let show6 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
-        let show7 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
-        let show8 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
-        let show9 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
-        let show10 = TVShow(name: "arrow", id: "1396", imgName: "arrow.jpg")
-        let show11 = TVShow(name: "flash", id: "1396", imgName: "flash.jpg")
+        let show1 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
+        let show2 = TVShow(name: "breaking bad", id: "1396", imgUrl: "bb.jpg")
+        let show4 = TVShow(name: "greys anatomy", id: "1396", imgUrl: "greys.jpg")
+        let show6 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
+        let show7 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
+        let show8 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
+        let show9 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
+        let show10 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
+        let show11 = TVShow(name: "flash", id: "1396", imgUrl: "flash.jpg")
         programas.append(show1)
         
         programas.append(show11)
@@ -59,6 +61,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.Done
         
+        getDiscoverTvShows{ () -> () in
+            self.collection.reloadData()
+            print("YEAHHHH")
+        }
+        
+        
+        
+    }
+    
+    func getDiscoverTvShows(completed: DownloadComplete) {
         let urlString = "http://api.themoviedb.org/3/discover/tv?api_key=4fac1b17cdad8598c05f708d371e2c45"
         
         Alamofire.request(.GET, urlString).responseJSON { response in
@@ -72,7 +84,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
                     for result in results {
                         if let name = result["name"] as? String, let id = result["id"] as? Int, let path = result["poster_path"] as? String {
-                            let newShow = TVShow(name: name, id: "\(id)", imgName: "flash.jpg");
+                            let newShow = TVShow(name: name, id: "\(id)", imgUrl: path);
                             self.jsonTopShowList.append(newShow)
                         }
                     }
@@ -82,10 +94,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 }
                 
             }
+            completed()
         }
-        
-        
-        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -96,7 +106,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if inSearchMode {
                 show = filteredTvshow[indexPath.row]
             } else {
-                show = programas[indexPath.row]
+                show = jsonTopShowList[indexPath.row]
             }
             
             cell.configureCell(show)
@@ -114,7 +124,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if inSearchMode {
             show = filteredTvshow[indexPath.row]
         } else {
-            show = programas[indexPath.row]
+            show = jsonTopShowList[indexPath.row]
         }
         
         performSegueWithIdentifier("TVShowDetailVC", sender: show)
@@ -125,7 +135,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if inSearchMode {
             return filteredTvshow.count
         } else {
-            return programas.count
+            return jsonTopShowList.count
         }
     }
     

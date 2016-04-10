@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TVShowDetailVC: UIViewController {
     
@@ -20,16 +21,36 @@ class TVShowDetailVC: UIViewController {
     @IBOutlet var createdLbl: UILabel!
     @IBOutlet var networksLbl: UILabel!
     
+    @IBOutlet var image: UIImageView!
     var show: TVShow!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLbl.text = show.name
+        nameLbl.text = show.name.uppercaseString
+        
+        
+       
         
         show.downloadTvShowDetails { () -> () in
-            
+            print("DID we get here")
+            self.updateUI()
         }
+        
+        
+        
+    }
+    
+    func updateUI() {
+        descriptionLbl.text = show.description
+        ratingLbl.text = show.rating
+        createdLbl.text = show.createdBy
+        networksLbl.text = show.networks
+        airDateLbl.text = show.airdate
+        statusLbl.text = show.status
+        genreLbl.text = show.genres
+        let URL = NSURL(string: show.imgUrl)!
+        image.af_setImageWithURL(URL)
     }
 
     override func didReceiveMemoryWarning() {

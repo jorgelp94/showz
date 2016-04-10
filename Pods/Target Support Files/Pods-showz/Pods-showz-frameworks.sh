@@ -85,7 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-showz/Alamofire.framework"
+  install_framework "Pods-showz/AlamofireImage.framework"
+  install_framework "Pods-showz/NVActivityIndicatorView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-showz/Alamofire.framework"
+  install_framework "Pods-showz/AlamofireImage.framework"
+  install_framework "Pods-showz/NVActivityIndicatorView.framework"
 fi
