@@ -88,7 +88,7 @@ class TVShow {
     init(name: String, id: String, imgUrl: String) {
         _name = name
         _showId = id
-        _imgUrl = imgUrl
+        _imgUrl = "\(URL_IMG)\(imgUrl)"
         
         _showURL = "\(URL_BASE)\(URL_TVSHOW)\(_showId)\(API_KEY)"
     }
@@ -167,7 +167,7 @@ class TVShow {
                 if let poster = dict["poster_path"] as? String {
                     let fullPath = "\(URL_IMG)\(poster)"
                     print(fullPath)
-                    self._showURL = fullPath
+                    self._imgUrl = fullPath
                 }
                 
             }

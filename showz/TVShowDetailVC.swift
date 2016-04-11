@@ -37,8 +37,6 @@ class TVShowDetailVC: UIViewController {
             self.updateUI()
         }
         
-        
-        
     }
     
     func updateUI() {
@@ -49,6 +47,7 @@ class TVShowDetailVC: UIViewController {
         airDateLbl.text = show.airdate
         statusLbl.text = show.status
         genreLbl.text = show.genres
+        print(show.imgUrl)
         let URL = NSURL(string: show.imgUrl)!
         image.af_setImageWithURL(URL)
     }

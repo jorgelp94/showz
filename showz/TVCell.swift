@@ -25,6 +25,7 @@ class TVCell: UICollectionViewCell {
         tvshow = show
         
         nameLbl.text = tvshow.name.capitalizedString
+        print("TVCELL URL: \(show.imgUrl)")
         let URL = NSURL(string: show.imgUrl)!
         thumbImg.af_setImageWithURL(URL)
     }
