@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D49E3B6566F70E6AA7BD84FA /* Pods_showz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80083F13B1791A9B8AAB338D /* Pods_showz.framework */; };
+		F43393C01CBC338800708D72 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43393BF1CBC338700708D72 /* iAd.framework */; };
 		F4A9644F1CB6E8060073E041 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A9644E1CB6E8060073E041 /* Constants.swift */; };
 		F4C5AF111CAE1F160051036E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5AF101CAE1F160051036E /* AppDelegate.swift */; };
 		F4C5AF131CAE1F160051036E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5AF121CAE1F160051036E /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 		80083F13B1791A9B8AAB338D /* Pods_showz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA32B9C1A9CA74609EC3E4E /* Pods-showz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showz.release.xcconfig"; path = "Pods/Target Support Files/Pods-showz/Pods-showz.release.xcconfig"; sourceTree = "<group>"; };
 		C6487D5BA256951CF36556E8 /* Pods-showz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-showz/Pods-showz.debug.xcconfig"; sourceTree = "<group>"; };
+		F43393BF1CBC338700708D72 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		F4A9644E1CB6E8060073E041 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F4C5AF0D1CAE1F150051036E /* showz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = showz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C5AF101CAE1F160051036E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43393C01CBC338800708D72 /* iAd.framework in Frameworks */,
 				D49E3B6566F70E6AA7BD84FA /* Pods_showz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +63,7 @@
 		621CCE25A3847D1BC081E8DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F43393BF1CBC338700708D72 /* iAd.framework */,
 				80083F13B1791A9B8AAB338D /* Pods_showz.framework */,
 			);
 			name = Frameworks;

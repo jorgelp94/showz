@@ -9,13 +9,13 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import iAd
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
     
-    var programas = [TVShow]()
     var inSearchMode = false
     var filteredTvshow = [TVShow]()
     
@@ -25,35 +25,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let show1 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
-        let show2 = TVShow(name: "breaking bad", id: "1396", imgUrl: "bb.jpg")
-        let show4 = TVShow(name: "greys anatomy", id: "1396", imgUrl: "greys.jpg")
-        let show6 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
-        let show7 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
-        let show8 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
-        let show9 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
-        let show10 = TVShow(name: "arrow", id: "1396", imgUrl: "arrow.jpg")
-        let show11 = TVShow(name: "flash", id: "1396", imgUrl: "flash.jpg")
-        programas.append(show1)
-        
-        programas.append(show11)
-        programas.append(show2)
-        programas.append(show4)
-        programas.append(show6)
-        programas.append(show7)
-        programas.append(show8)
-        programas.append(show9)
-        programas.append(show10)
-        
-        programas.append(show11)
-        programas.append(show2)
-        programas.append(show4)
-        programas.append(show6)
-        programas.append(show7)
-        programas.append(show8)
-        programas.append(show9)
-        programas.append(show10)
         
         collection.delegate = self
         collection.dataSource = self
@@ -66,7 +37,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             print("YEAHHHH")
         }
         
+        // Display iAd
+        self.canDisplayBannerAds = true
         
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 29.0/255.0, green: 74.0/255.0, blue: 125.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.topItem?.title = "Discover"
+        
+
+        // Custom iAd
+//        let banner = ADBannerView(adType: ADAdType.Banner)
+//        banner.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, banner.frame.size.height)
+//        self.navigationController?.navigationBar.addSubview(banner)
         
     }
     
@@ -84,13 +68,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
                     for result in results {
                         if let name = result["name"] as? String, let id = result["id"] as? Int, let path = result["poster_path"] as? String {
-                            let newShow = TVShow(name: name, id: "\(id)", imgUrl: path);
+                            let newShow = TVShow(name: name.lowercaseString, id: "\(id)", imgUrl: path);
                             self.jsonTopShowList.append(newShow)
                         }
                     }
                     
                     print(self.jsonTopShowList)
-                    print(self.programas)
                 }
                 
             }
@@ -159,7 +142,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } else {
             inSearchMode = true
             let lower = searchBar.text!.lowercaseString
-            filteredTvshow = programas.filter({$0.name.rangeOfString(lower) != nil}) // closure element
+            filteredTvshow = jsonTopShowList.filter({$0.name.rangeOfString(lower) != nil}) // closure element
             collection.reloadData()
         }
     }
