@@ -46,6 +46,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.topItem?.title = "Discover"
         
+        let icon = UIBarButtonItem(image: UIImage(named: "menunew"), style: .Plain, target: navigationController, action: #selector(NavigationController.showMenu))
+        icon.imageInsets = UIEdgeInsetsMake(-10, 0, 0, 0)
+        icon.tintColor = UIColor.blackColor()
+        navigationItem.leftBarButtonItem = icon
+        
 
         // Custom iAd
 //        let banner = ADBannerView(adType: ADAdType.Banner)

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D49E3B6566F70E6AA7BD84FA /* Pods_showz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80083F13B1791A9B8AAB338D /* Pods_showz.framework */; };
 		F43393C01CBC338800708D72 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43393BF1CBC338700708D72 /* iAd.framework */; };
+		F471B42A1CBDDB88004BED57 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471B4291CBDDB87004BED57 /* NavigationController.swift */; };
+		F471B42C1CBDDDAA004BED57 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471B42B1CBDDDAA004BED57 /* TodayViewController.swift */; };
 		F4A9644F1CB6E8060073E041 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A9644E1CB6E8060073E041 /* Constants.swift */; };
 		F4C5AF111CAE1F160051036E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5AF101CAE1F160051036E /* AppDelegate.swift */; };
 		F4C5AF131CAE1F160051036E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5AF121CAE1F160051036E /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 		8FA32B9C1A9CA74609EC3E4E /* Pods-showz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showz.release.xcconfig"; path = "Pods/Target Support Files/Pods-showz/Pods-showz.release.xcconfig"; sourceTree = "<group>"; };
 		C6487D5BA256951CF36556E8 /* Pods-showz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-showz/Pods-showz.debug.xcconfig"; sourceTree = "<group>"; };
 		F43393BF1CBC338700708D72 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		F471B4291CBDDB87004BED57 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		F471B42B1CBDDDAA004BED57 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		F4A9644E1CB6E8060073E041 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F4C5AF0D1CAE1F150051036E /* showz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = showz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C5AF101CAE1F160051036E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 		F4F534661CB5EFE400AD24BD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F471B4291CBDDB87004BED57 /* NavigationController.swift */,
+				F471B42B1CBDDDAA004BED57 /* TodayViewController.swift */,
 				F4C5AF121CAE1F160051036E /* ViewController.swift */,
 				F4F534671CB5F01E00AD24BD /* TVShowDetailVC.swift */,
 			);
@@ -263,7 +269,9 @@
 				F4C5AF271CAE35D90051036E /* TVCell.swift in Sources */,
 				F4C5AF111CAE1F160051036E /* AppDelegate.swift in Sources */,
 				F4F534681CB5F01E00AD24BD /* TVShowDetailVC.swift in Sources */,
+				F471B42C1CBDDDAA004BED57 /* TodayViewController.swift in Sources */,
 				F4C5AF241CAE25070051036E /* TVShow.swift in Sources */,
+				F471B42A1CBDDB88004BED57 /* NavigationController.swift in Sources */,
 				F4A9644F1CB6E8060073E041 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,5 +7,6 @@ target 'showz' do
 	pod 'Alamofire', '~> 3.0'
 	pod 'AlamofireImage', '~> 2.0'
 	pod 'NVActivityIndicatorView'
+	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+	pod 'MediumMenu'
 end
-

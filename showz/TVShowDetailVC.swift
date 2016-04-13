@@ -27,10 +27,7 @@ class TVShowDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLbl.text = show.name.uppercaseString
-        
-        
-       
+        //self.navigationController?.navigationBar.topItem?.title = show.name.capitalizedString
         
         show.downloadTvShowDetails { () -> () in
             print("DID we get here")

@@ -74,7 +74,7 @@
                   moduleName = "showz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jorgelp94/Dropbox/Coding/Devslopes/showz/showz/TVShow.swift"
-                  timestampString = "481966428.245675"
+                  timestampString = "482218916.031768"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "126"
@@ -89,7 +89,7 @@
                   moduleName = "showz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jorgelp94/Dropbox/Coding/Devslopes/showz/showz/TVShow.swift"
-                  timestampString = "481966428.24591"
+                  timestampString = "482218916.032"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "126"
@@ -112,6 +112,38 @@
             startingLineNumber = "123"
             endingLineNumber = "123"
             landmarkName = "downloadTvShowDetails(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "showz/ViewController.swift"
+            timestampString = "482218581.814755"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "showz/ViewController.swift"
+            timestampString = "482218591.567148"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
